@@ -1,0 +1,179 @@
+<div class="row">
+    <div class="col-md-8  d-none  d-md-block table-responsive-md ">
+      <table class="table">
+         <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">
+             <img src="../../../assets/banderas/banderaa.png" class="card-img-top w-25">
+             <h5 class="card-title text-dark">USD</h5>
+             </th>
+
+           <th scope="col">
+             <img
+               src="../../../assets/banderas/banderab.png"
+               class="card-img-top w-25">
+             <h5 class="card-title text-dark">EUR</h5>
+           </th>
+
+            <th scope="col">
+              <img src="../../../assets/banderas/banderac.png"
+               class="card-img-top w-25">
+               <h5 class="card-title text-dark">GBP</h5>
+            </th>
+           </tr>
+        </thead>
+       
+        <tbody>
+         <tr>
+           <th scope="row"> <img src="../../../assets/banderas/banderaa.png" width="50"
+               height="30" class="figure-img img-fluid rounded" alt="active">1</th>
+
+
+           <td>
+             <h5 class=" text-dark">
+               1.00000
+               1.00000
+             </h5>
+
+           </td>
+
+           <td>
+             <h5 class=" text-info">
+               0.989987
+               <br />
+               1.989765
+             </h5>
+
+           </td>
+
+           <td>
+             <h5 class=" text-info">
+               0.989987
+               <br />
+               1.989765
+             </h5>
+
+           </td>
+         </tr>
+
+
+         <tr>
+           <th scope="row"> <img
+               src="../../../assets/banderas/banderab.png"
+               width="50" height="30" class="figure-img img-fluid rounded" alt="active">2</th>
+           <td>
+             <h5 class=" text-dark">
+               1.00000
+               1.00000
+             </h5>
+
+           </td>
+
+           <td>
+             <h5 class=" text-info">
+               0.989987
+               <br />
+               1.989765
+             </h5>
+
+           </td>
+
+           <td>
+             <h5 class=" text-info">
+               0.989987
+               <br />
+               1.989765
+             </h5>
+
+           </td>
+         </tr>
+
+         <tr>
+           <th scope="row"> <img
+               src="../../../assets/banderas/banderac.png" width="50"
+               height="30" class="figure-img img-fluid rounded" alt="active"> 3</th>
+           <td>
+             <h5 class=" text-dark">
+               1.00000
+               1.00000
+             </h5>
+
+           </td>
+
+           <td>
+             <h5 class=" text-info">
+               0.989987
+               <br />
+               1.989765
+             </h5>
+
+           </td>
+
+           <td>
+             <h5 class=" text-info">
+               0.989987
+               <br />
+               1.989765
+             </h5>
+
+           </td>
+         </tr>
+       </tbody>
+     </table>
+
+     <br />
+   </div>
+
+   <div class="col-md-4 col-12 col-sm-12 bg-primary  ">
+     <form>
+       <fieldset enabled>
+         <legend class="align-content-center">Conversor de Divisas</legend>
+
+         <div class="mb-3">
+           <label for="disabledTextInput" class="text-white">Cantidad</label>
+           <input type="number" id="disabledTextInput" class="form-control" placeholder="Cantidad" name="cantidad" [(ngModel)]="cantidad">
+         </div>
+         <div class="mb-3">
+           <label for="disabledSelect" class="form-label text-white">De</label>
+           <select id="disabledSelect" class="form-select" [(ngModel)]="fromtype" name="fromtype">
+             <option value="EUR">EUR Euros</option>
+             <option value="USD">USD Dolares EE UU</option>
+             <option value="GBP">GBP Gran Bretaña</option>
+           </select>
+         </div>
+
+         <div class="mb-3">
+           <label for="disabledSelect" class="form-label text-white">A</label>
+           <select id="disabledSelect" class="form-select" [(ngModel)]="totype" name="totype">
+             <option value="EUR">EUR Euros</option>
+             <option value="USD">USD Dòlares EE UU</option>
+             <option value="GBP">GBP</option>
+           </select>
+
+         </div>
+
+
+         
+
+
+         <button type="submit" class="btn btn-warning" (click)="convertir()">Convertir --> </button> 
+         
+       </fieldset>
+
+       
+      
+
+        
+        
+     </form>
+
+    <div class="bg-info p-3">
+      <h3 class="font-weight-bold">{{resultadoDivisa | number: '1.2-2'}}</h3>
+    
+    </div>
+    <button type="submit" class="btn btn-warning" (click)="guardartransaccion()">Guardar Transaccion </button> 
+     <br />
+   </div>
+  <p>BBBBBBBB</p>
+ </div>

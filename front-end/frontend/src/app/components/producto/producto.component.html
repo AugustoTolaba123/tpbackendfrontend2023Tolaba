@@ -1,0 +1,38 @@
+
+  <div class="row">
+    <br/>
+   <div class="col-md-8 col-sm-8 col-8 bg-success">
+      <div class="row" >
+       <div class="col-md-4 col-sm-6 col-12 bg-dark" *ngFor="let producto of productos" >
+         <div class="card" style="width: 10rem;">
+           <img src="{{producto.imagen}}" class="card-img-top" alt="...">
+           <div class="card-body">
+             <h5 class="card-title text-primary">{{producto.nombre}}</h5>
+             <p class="card-text">{{producto.descripcion}} </p>
+             <p class="font-weight-bold card-text">${{producto.precio}}</p>
+             <div> 
+             <a class="btn btn-primary">Agregar Carrito</a>
+             <button class="btn-primary" (click)="agreagarProducto()">AGREGAR</button>
+            </div>
+           </div>
+         </div> 
+         <br/>          
+       </div>       
+</div>   
+</div>            
+   <div class="col-md-4 col-sm-4  col-4 bg-secondary">
+     <div class="card" style="width: 18rem;">
+       <p>
+         <a href="https://www.burgerking.com.ar/"> <img
+             src="../../../assets/productos/burger.gif"
+             class="card-img-top" alt="..."></a>
+       </p>
+     </div>
+   </div>
+   
+
+</div>
+<br/>
+
+
+  
