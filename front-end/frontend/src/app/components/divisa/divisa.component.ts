@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Transaccion } from 'src/app/models/transaccion';
 import { DivisaService } from 'src/app/services/divisa.service';
 
@@ -17,7 +18,7 @@ export class DivisaComponent implements OnInit {
 
   transaccion!: Transaccion;
 
-  constructor(private divisaService: DivisaService) {
+  constructor(private divisaService: DivisaService,private router: Router) {
     this.transaccion = new Transaccion();
    }
 
@@ -58,6 +59,11 @@ export class DivisaComponent implements OnInit {
         alert(error.msg)
        }
      )
+   }
+
+   vertransaccion(){
+     this.router.navigate(["transacciones-form",0])
+  
    }
 
 

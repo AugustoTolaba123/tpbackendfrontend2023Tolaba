@@ -1,0 +1,50 @@
+<table  *ngFor="let t of transacciones" class="table">
+    <thead>
+      <tr>
+        <th scope="col">monedaOrigen</th>
+        <th scope="col">monedaDestino</th>
+        <th scope="col">cantidadOrigen</th>
+        <th scope="col">cantidadDestino</th>
+        <th scope="col">emailCliente</th>
+        <th scope="col">tasaConversion</th>   
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{t.monedaOrigen}} </td>
+        <td>{{t.monedaDestino}}</td>
+        <td>{{t.cantidadOrigen}}</td>
+        <td>{{t.cantidadDestino}}</td>
+        <td>{{t.emailCliente}}</td>
+        <td>{{t.tasaConversion}}</td>
+      </tr>
+      
+      
+    </tbody>
+  </table>
+
+  <button type="submit" class="btn btn-warning" (click)="cargarTransaccionesxfiltro()">Ver Transacciones x filtro de email</button> 
+  <table  *ngFor="let t of transacciones2" class="table">
+    <thead>
+      <tr>
+        <th scope="col">monedaOrigen</th>
+        <th scope="col">monedaDestino</th>
+        <th scope="col">cantidadOrigen</th>
+        <th scope="col">cantidadDestino</th>
+        <th scope="col">emailCliente</th>
+        <th scope="col">tasaConversion</th>   
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{t.monedaOrigen}} </td>
+        <td>{{t.monedaDestino}}</td>
+        <td>{{t.cantidadOrigen}}</td>
+        <td>{{t.cantidadDestino}}</td>
+        <td>{{t.emailCliente}}</td>
+        <td>{{t.tasaConversion}}</td>
+      </tr>
+      
+      
+    </tbody>
+  </table>

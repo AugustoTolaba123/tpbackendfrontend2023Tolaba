@@ -33,4 +33,25 @@ export class DivisaService {
         return this._http.post(this.urlbase+"transaccion",body,httpOption)
         
         }
+
+        getTransacciones():Observable<any>{
+          let httpOption = {
+             headers: new HttpHeaders({
+                
+             }),
+             params: new HttpParams()
+          }
+       return this._http.get(this.urlbase+"transaccion/",httpOption)
+      }
+
+      getTransaccionesxfiltro(email:string):Observable<any>{
+        let httpOption = {
+           headers: new HttpHeaders({
+              
+           }),
+           params: new HttpParams().append('emailCliente',email)
+        }
+     return this._http.get(this.urlbase+"transaccion/"+email,httpOption)
+    }
+
     }

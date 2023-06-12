@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { DivisaComponent } from './components/divisa/divisa.component';
+import { TransaccionComponent } from './components/transaccion/transaccion.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DivisaComponent } from './components/divisa/divisa.component';
     ProductoFormComponent,
     FooterComponent,
     HeaderComponent,
-    DivisaComponent
+    DivisaComponent,
+    TransaccionComponent
   ],
   imports: [
     BrowserModule,
