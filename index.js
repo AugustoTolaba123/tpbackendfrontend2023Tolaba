@@ -15,6 +15,7 @@ app.use('/api/transaccion', require('./routes/transaccion.route.js'));
 app.use('/api/espectador', require('./routes/espectador.route.js'));
 app.use('/api/ticket', require('./routes/ticket.route.js'));
 //app.use('/api/sector', require('./routes/sector.route.js'));
+//GIT ACTUALIZADO PRUEBAAAAAAA INDEX
 //setting
 app.set('port', process.env.PORT || 3000);
 //starting the server
