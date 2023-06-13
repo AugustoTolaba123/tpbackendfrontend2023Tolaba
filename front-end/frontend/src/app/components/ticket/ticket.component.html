@@ -1,0 +1,85 @@
+<table  class="table table-striped border border-1">
+    <thead>
+    <tr>
+        <th style="width: 20%">
+            precioTicket
+        </th>
+        <th style="width: 30%">
+            categoriaEspectador
+        </th>
+        <th style="width: 10%">
+            fechaCompra
+        </th>
+        <th style="width: 20%">
+            Espectador
+        </th>
+        <th style="width: 20%">
+            Espectador
+        </th>        
+    </tr>
+    </thead>
+    <tbody> 
+   
+    <tr *ngFor="let t of tickets">
+        <td>{{t.precioTicket}} </td>
+        <td>{{t. categoriaEspectador}}</td>
+        <td>{{t.fechaCompra}}</td>
+        <td>{{t.espectador.nombre}},{{t.espectador.apellido}}</td>
+        <td>{{t._id}}</td>
+        <td>
+            <button class="btn btn-success">MOD</button>
+            <button class="btn btn-danger" (click)="deleteTicket(t)">BORRAR</button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+<div class="mb-3">
+    <label for="idcategoria" class="form-label">elija categoria</label>
+    <select name="categoria" class="form-control" id="idcategoria" [(ngModel)]="categoria">
+      <option value="l">Local</option>
+      <option value="e">Extranjero</option>
+    </select>
+    <button class="btn btn-success" (click)="cargarTicketxcategoria(categoria)">listar</button>
+  </div>
+
+  <table  class="table table-striped border border-1">
+    <thead>
+    <tr>
+        <th style="width: 20%">
+            precioTicket
+        </th>
+        <th style="width: 30%">
+            categoriaEspectador
+        </th>
+        <th style="width: 10%">
+            fechaCompra
+        </th>
+        <th style="width: 20%">
+            Espectador
+        </th>
+        <th style="width: 20%">
+            Espectador
+        </th>        
+    </tr>
+    </thead>
+    <tbody> 
+   
+    <tr *ngFor="let t of tickets2">
+        <td>{{t.precioTicket}} </td>
+        <td>{{t. categoriaEspectador}}</td>
+        <td>{{t.fechaCompra}}</td>
+        <td>{{t.espectador.nombre}},{{t.espectador.apellido}}</td>
+        <td>{{t._id}}</td>
+        <td>
+            <button class="btn btn-success">MOD</button>
+            <button class="btn btn-danger" (click)="deleteTicket(t)">BORRAR</button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+

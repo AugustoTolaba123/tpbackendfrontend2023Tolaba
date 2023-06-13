@@ -10,6 +10,7 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { DivisaComponent } from './components/divisa/divisa.component';
 import { TransaccionComponent } from './components/transaccion/transaccion.component';
+import { TicketComponent } from './components/ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TransaccionComponent } from './components/transaccion/transaccion.compo
     FooterComponent,
     HeaderComponent,
     DivisaComponent,
-    TransaccionComponent
+    TransaccionComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,
