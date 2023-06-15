@@ -14,21 +14,25 @@ export class TicketFormComponent implements OnInit {
   accion!:string; 
   ticket!: Ticket;
   espectadores!:Array<Espectador>;
+  validar!:boolean;
   constructor(private activatedRoute: ActivatedRoute,
     private ticketService: TicketService, private router: Router) {
-      this.ticket = new Ticket();
-      this.espectadores = new Array<Espectador>();
+      //this.ticket = new Ticket();
+      //this.espectadores = new Array<Espectador>();
+     
      }
 
   ngOnInit(): void { 
     this.activatedRoute.params.subscribe (params => {
       if (params['id'] == "0"){
+        this.validar = false;
         this.accion = "new";
         this.cargarEspectadores();
       }
       else {
+        this.validar = true;
         this.accion = "update";
-        this.cargarEspectadores();
+       //this.cargarEspectadores();
         this.cargarTicket(params['id']);
       }
       }
@@ -40,8 +44,10 @@ export class TicketFormComponent implements OnInit {
  
 
   cargarEspectadores(){
+    this.espectadores = new Array<Espectador>();
     this.ticketService.getEspectadores().subscribe(
       result =>{
+        this.ticket = new Ticket();
         let unEspectador = new Espectador();
         result.forEach((element:any) =>{
            Object.assign(unEspectador,element);
@@ -73,10 +79,28 @@ export class TicketFormComponent implements OnInit {
   cargarTicket(id:string){
     this.ticketService.getTicket(id).subscribe(
       result =>{
-        console.log(result);
+        this.ticket = new Ticket();
         Object.assign(this.ticket,result);
-        this.ticket.espectador = this.espectadores.find(a => (a._id == this.ticket.espectador._id))!;
-        console.log(this.ticket);
+        console.log(this.ticket); 
+        //llamo a la carga de espectadores
+        this.espectadores = new Array<Espectador>();
+        this.ticketService.getEspectadores().subscribe(
+          result =>{
+            let unEspectador = new Espectador();
+            result.forEach((element:any) =>{
+               Object.assign(unEspectador,element);
+               this.espectadores.push(unEspectador)
+               unEspectador = new Espectador();
+              });     
+              this.ticket.espectador = this.espectadores.find(a => (a._id == this.ticket.espectador._id))!;
+            },
+          error =>{
+              
+          }
+        ) 
+        //fin llamada carga de espectadores
+        
+        
        },
       error =>{
 
@@ -86,7 +110,23 @@ export class TicketFormComponent implements OnInit {
   }
 
 
-  actualizarTicket(){
+  actualizarTicket(ticket:Ticket){
+    console.log("hola")
+    console.log(ticket._id) 
+    this.ticketService.updateTicket(ticket._id,ticket).subscribe(
+   
+      (result:any) =>{
+          if(result.status == 1){
+             alert(result.msg);
+          }
+      },
+       error => {
+        alert(error.msg)
+       }
+     )
+     this.router.navigate(["punto3"])
+
+
 
   }
 

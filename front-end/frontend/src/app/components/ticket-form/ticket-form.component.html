@@ -34,7 +34,7 @@
                  class="alert alert-danger">
                 
                    <div *ngIf="categoriaEspectador.errors?.['required']">
-                 cate es requerido.
+                 categoria es requerido.
                    </div>
                   
                  </div> 
@@ -42,21 +42,44 @@
 
               <div class="mb-3">
                 <label for="idfechaCompra" class="form-label">Fecha de compra en formato yyyy-mm-dd</label>
-                <textarea name="fechaCompra" class="form-control" id="idfechaCompra"
-                [(ngModel)]="ticket.fechaCompra"   ></textarea>
+                <input name="fechaCompra" type="date" class="form-control" id="idfechaCompra" required minlength="10"
+                [(ngModel)]="ticket.fechaCompra" #fechaCompra="ngModel"  >
+                <div *ngIf="fechaCompra.invalid && (fechaCompra.dirty || fechaCompra.touched)"
+                class="alert alert-danger">
+               
+                  <div *ngIf="fechaCompra.errors?.['required']">
+                fecha es requerido.
+                  </div>
+                  <div *ngIf="fechaCompra.errors?.['minlength']">
+                fechaCompra debe tener dia mes y año correctamente
+                  </div>
+                </div> 
+             
+             
+             
               </div>
               
               <div class="mb-3">
                 <label for="idespectador" class="form-label">Espectador</label>
-                <select class="form-select" name="espectador" [(ngModel)]="ticket.espectador" >
+                <select class="form-select" name="espectador"  required
+                [(ngModel)]="ticket.espectador"  #espectador="ngModel" >
                   
                   <option *ngFor="let espectador of espectadores" [ngValue]="espectador" >{{espectador.apellido}},{{espectador.nombre}}</option>
                   
                 </select>
+
+                <div *ngIf="espectador.invalid && (espectador.dirty || espectador.touched)"
+                 class="alert alert-danger">
+                
+                   <div *ngIf="espectador.errors?.['required']">espectador es requerido.
+                   </div>
+                  
+                 </div> 
+
               </div>
 
-              <button type="button" class="btn btn-primary" (click)="guardarTicket()">Guardar</button>  
-              <button type="button" class="btn btn-primary"(click)="actualizarTicket()">Actualizar</button>              
+              <button [disabled]="!ticketForm.form.valid" [disabled]="validar == true" type="button" class="btn btn-primary" (click)="guardarTicket()">Guardar</button>  
+              <button [disabled]="validar == false" type="button" class="btn btn-primary"(click)="actualizarTicket(ticket)">Actualizar</button>              
                        
 
         </form>

@@ -62,9 +62,11 @@ ticketCtrl.deleteTicket = async (req, res)=>{
 
 //editar ticket
 ticketCtrl.editTicket = async (req, res) => {
-    const vticket = new Ticket(req.body);
-    try {
-    await Ticket.updateOne({_id: req.body._id}, vticket);
+  const vagente = new Ticket(req.body);
+  try {
+  //const ticket = await Ticket.findById(req.params.id).populate("espectador");
+  
+  await Ticket.updateOne({_id: req.body._id}, vagente).populate("espectador");
     res.json({
     'status': '1',
     'msg': 'Ticket updated'

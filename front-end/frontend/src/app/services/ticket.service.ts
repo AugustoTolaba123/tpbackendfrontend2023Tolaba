@@ -32,7 +32,15 @@ deleteTicket(ide:string):Observable<any>{
   }
 return this._http.delete(this.urlbase+"ticket/"+ide,httpOption)
 }
-
+updateTicket(ide:string,ticket:Ticket):Observable<any>{
+  let httpOption = {
+     headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+     }),
+     params: new HttpParams()
+  }
+return this._http.put(this.urlbase+"ticket/"+ide,ticket,httpOption)
+}
 getTicketsxcategoria(categoriaEspectador:string):Observable<any>{
   let httpOption = {
      headers: new HttpHeaders({
