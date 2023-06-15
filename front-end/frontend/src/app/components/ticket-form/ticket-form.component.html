@@ -1,0 +1,64 @@
+<div class="card">
+    <div class="card-header">
+      GESTION DE SECTORES
+    </div>
+    <div class="card-body">
+        <form #ticketForm="ngForm">
+              <div class="mb-3">
+                <label for="iprecioTicket" class="form-label">Precio Ticket</label>
+                <input name="precioTicket" type="number" class="form-control" id="iprecioTicket" required min="5"
+                 [(ngModel)]="ticket.precioTicket"  #precioTicket="ngModel"  >
+                 <div *ngIf="precioTicket.invalid && (precioTicket.dirty || precioTicket.touched)"
+                 class="alert alert-danger">
+                
+                   <div *ngIf="precioTicket.errors?.['required']">
+                 precioTicket es requerido.
+                   </div>
+                   <div *ngIf="precioTicket.errors?.['min']">
+                 El precio debe ser mayor a 5.
+                   </div>
+                 </div> 
+              
+              
+              
+                </div>
+
+              <div class="mb-3">
+                <label for="idcategoriaEspectador" class="form-label">elija categoria</label>
+                <select class="form-control" id="categoriaEspectador" required [(ngModel)]="ticket.categoriaEspectador" 
+                 name="categoriaEspectador" #categoriaEspectador="ngModel">
+                  <option value="l">Local</option>
+                  <option value="e">Extranjero</option>
+                </select>
+                <div *ngIf="categoriaEspectador.invalid && (categoriaEspectador.dirty || categoriaEspectador.touched)"
+                 class="alert alert-danger">
+                
+                   <div *ngIf="categoriaEspectador.errors?.['required']">
+                 cate es requerido.
+                   </div>
+                  
+                 </div> 
+              </div>
+
+              <div class="mb-3">
+                <label for="idfechaCompra" class="form-label">Fecha de compra en formato yyyy-mm-dd</label>
+                <textarea name="fechaCompra" class="form-control" id="idfechaCompra"
+                [(ngModel)]="ticket.fechaCompra"   ></textarea>
+              </div>
+              
+              <div class="mb-3">
+                <label for="idespectador" class="form-label">Espectador</label>
+                <select class="form-select" name="espectador" [(ngModel)]="ticket.espectador" >
+                  
+                  <option *ngFor="let espectador of espectadores" [ngValue]="espectador" >{{espectador.apellido}},{{espectador.nombre}}</option>
+                  
+                </select>
+              </div>
+
+              <button type="button" class="btn btn-primary" (click)="guardarTicket()">Guardar</button>  
+              <button type="button" class="btn btn-primary"(click)="actualizarTicket()">Actualizar</button>              
+                       
+
+        </form>
+    </div>
+</div>

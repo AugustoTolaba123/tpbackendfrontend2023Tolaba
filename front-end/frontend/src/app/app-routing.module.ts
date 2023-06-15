@@ -5,13 +5,15 @@ import { ProductoFormComponent } from './components/producto-form/producto-form.
 import { DivisaComponent } from './components/divisa/divisa.component';
 import { TransaccionComponent } from './components/transaccion/transaccion.component';
 import { TicketComponent } from './components/ticket/ticket.component';
+import { TicketFormComponent } from './components/ticket-form/ticket-form.component';
 
 const routes: Routes = [
   {path:"producto", component:ProductoComponent},
   {path:"producto-form/:id", component:ProductoFormComponent},
   {path:"punto2", component:DivisaComponent},
   {path:"transacciones-form/:id", component:TransaccionComponent},
-  {path:"punto3", component:TicketComponent}
+  {path:"punto3", component:TicketComponent},
+  {path:'ticket-form/:id', component:TicketFormComponent}
 ];
 
 @NgModule({

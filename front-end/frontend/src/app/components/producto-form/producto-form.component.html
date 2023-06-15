@@ -3,40 +3,111 @@
       GESTION DE PRODUCTOS
     </div>
     <div class="card-body">
-        <form>
+        <form #productoForm="ngForm">
             <div class="mb-3">
                 <label for="idnombre" class="form-label">Nombre</label>
-                <input name="nombre" type="text" class="form-control" id="idnombre"
-                 [(ngModel)]="producto.nombre"    >
-              </div>
+                <input name="nombre" type="text" class="form-control" id="idnombre" required minlength="4"
+                 [(ngModel)]="producto.nombre" #nombre="ngModel">
+              
+                 <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+                 class="alert alert-danger">
+                
+                   <div *ngIf="nombre.errors?.['required']">
+                 Nombre es requerido.
+                   </div>
+                   <div *ngIf="nombre.errors?.['minlength']">
+                 Nombre debe tener al menos 4 caracteres.
+                   </div>
+                 </div> 
+              
+              
+              
+            </div>
+
+
               <div class="mb-3">
                 <label for="iddescripcion" class="form-label">Descripcion</label>
-                <input name="descripcion" type="text" class="form-control" id="iddescripcion"
-                 [(ngModel)]="producto.descripcion"    >
-              </div>
+                <input name="descripcion" type="text" class="form-control" id="iddescripcion" required minlength="8"
+                 [(ngModel)]="producto.descripcion" #descripcion="ngModel"   >
+              
+                 <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)"
+                 class="alert alert-danger">
+                
+                   <div *ngIf="descripcion.errors?.['required']">
+                 descripcion es requerido.
+                   </div>
+                   <div *ngIf="descripcion.errors?.['minlength']">
+                 descripcion debe tener al menos 8 caracteres.
+                   </div>
+                 </div> 
+               
+                </div>
+
+
               <div class="mb-3">
                 <label for="idimagen" class="form-label">Imagen</label>
-                <input name="imagen" type="text" class="form-control" id="idimagen"
-                 [(ngModel)]="producto.imagen"    >
-              </div>
+                <input name="imagen" type="text" class="form-control" id="idimagen" required minlength="4"
+                 [(ngModel)]="producto.imagen" #imagen="ngModel"   >
+              
+                 <div *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)"
+                 class="alert alert-danger">
+                
+                   <div *ngIf="imagen.errors?.['required']">
+                 imagen es requerido.
+                   </div>
+                   <div *ngIf="imagen.errors?.['minlength']">
+                 imagen debe tener al menos 4 caracteres.
+                   </div>
+                 </div> 
+                     
+                </div>
               <div class="mb-3">
                 <label for="idprecio" class="form-label">Precio</label>
-                <input name="precio" type="number" class="form-control" id="idprecio"
-                [(ngModel)]="producto.precio"    >
+                <input name="precio" type="number" class="form-control" id="idprecio" required min="1000"
+                [(ngModel)]="producto.precio"  #precio="ngModel"   >
+                <div *ngIf="precio.invalid && (precio.dirty || precio.touched)"
+                 class="alert alert-danger">
+                
+                   <div *ngIf="precio.errors?.['required']">
+                 precio es requerido.
+                   </div>
+                   <div *ngIf="precio.errors?.['min']">
+                 precio debe ser mayor a 1000.
+                   </div>
+                 </div> 
+
               </div>
+
+
               <div class="mb-3">
                 <label for="idstock" class="form-label">Stock</label>
-                <input name="stock" type="number" class="form-control" id="idstock"
-                [(ngModel)]="producto.stock"    >
+                <input name="stock" type="number" class="form-control" id="idstock" required min="1"
+                [(ngModel)]="producto.stock" #stock="ngModel">
+                <div *ngIf="stock.invalid && (stock.dirty || stock.touched)"
+                 class="alert alert-danger">
+                
+                   <div *ngIf="stock.errors?.['required']">
+                 stock es requerido.
+                   </div>
+                   <div *ngIf="stock.errors?.['min']">
+                 stock debe ser mayor a 1.
+                   </div>
+                 </div> 
               </div>
+
               <div class="mb-3">
                 <label for="iddestacado" class="form-label">Destacado</label>
-                <select name="destacado" class="form-control" id="iddestacado" [(ngModel)]="producto.destacado">
+                <select name="destacado" class="form-control" id="iddestacado" required  
+                [(ngModel)]="producto.destacado" #destacado="ngModel">
                   <option value="true">Destacado</option>
                   <option value="false">No Destacado</option>
                 </select>
+                <div [hidden]="destacado.valid || destacado.pristine" class="alert alertdanger">
+                  destacado o no destacado es requerida
+                  </div>
+
               </div>
-              <button type="button" class="btn btn-primary" (click)="guardarProducto()">Guardar</button>              
+              <button [disabled]="!productoForm.form.valid" type="button" class="btn btn-primary" (click)="guardarProducto()">Guardar</button>              
                            
 
         </form>

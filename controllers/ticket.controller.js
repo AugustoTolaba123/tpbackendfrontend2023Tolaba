@@ -3,7 +3,15 @@ const Ticket = require('./../models/ticket')
 ticketCtrl = {};
 
 ticketCtrl.getTickets = async(req,res) => {
-   var tickets = await Ticket.find().populate("espectador");
+  let criteria = {}
+     if((req.query.categoriaEspectador != null) && (req.query.categoriaEspectador != ""
+        
+         )){
+        criteria.categoriaEspectador = req.query.categoriaEspectador;
+        
+     } 
+  
+  var tickets = await Ticket.find(criteria).populate("espectador");
      res.json(tickets);
 
 }
@@ -24,11 +32,18 @@ ticketCtrl.createTicket = async (req, res) => {
    }
    }
 
+   ticketCtrl.getTicketd = async (req, res) => {
+    const ticket = await Ticket.findById(req.params.id).populate("espectador");
+    res.json(ticket);
+    }
+
    ticketCtrl.getTicket = async (req, res) => {
     const categoriaEspectador = req.params.categoriaEspectador;
     const ticket = await Ticket.find({categoriaEspectador}).populate("espectador");
     res.json(ticket);
    }
+
+   
 
     //eliminar un producto
 ticketCtrl.deleteTicket = async (req, res)=>{

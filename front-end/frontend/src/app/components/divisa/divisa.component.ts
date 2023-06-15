@@ -38,7 +38,22 @@ export class DivisaComponent implements OnInit {
        }
      )
     this.validar = true;
-      
+    this.transaccion.cantidadOrigen = this.cantidad;
+    this.transaccion.monedaOrigen = this.fromtype;
+    this.transaccion.monedaDestino = this.totype;
+    this.transaccion.emailCliente = "aa@aa";
+    this.transaccion.tasaConversion = 0.855;
+    this.transaccion.cantidadDestino = this.cantidad * this.transaccion.tasaConversion;
+    this.divisaService.createDivisa(this.transaccion).subscribe(
+      (result:any) =>{
+          if(result.status == 1){
+             alert(result.msg);
+          }
+      },
+       error => {
+        alert(error.msg)
+       }
+     )  
   
   }
 

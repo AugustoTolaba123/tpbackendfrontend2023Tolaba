@@ -44,14 +44,20 @@ export class DivisaService {
        return this._http.get(this.urlbase+"transaccion/",httpOption)
       }
 
-      getTransaccionesxfiltro(email:string):Observable<any>{
+     
+
+
+      getTransaccionesxfiltro(monedaorigen:string,monedadestino:string):Observable<any>{
         let httpOption = {
            headers: new HttpHeaders({
               
            }),
-           params: new HttpParams().append('emailCliente',email)
+           params: new HttpParams()
         }
-     return this._http.get(this.urlbase+"transaccion/"+email,httpOption)
+     return this._http.get(this.urlbase+"transaccion/?monedaOrigen="+monedaorigen+"&monedaDestino="+monedadestino,httpOption)
     }
+
+   
+
 
     }

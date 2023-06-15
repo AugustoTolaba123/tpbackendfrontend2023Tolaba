@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Ticket } from 'src/app/models/ticket';
 import { TicketService } from 'src/app/services/ticket.service';
 
@@ -11,7 +12,7 @@ export class TicketComponent implements OnInit {
   tickets!:Array<Ticket>;
   tickets2!:Array<Ticket>;
    categoria!:string;
-  constructor(private ticketService: TicketService) { 
+  constructor(private ticketService: TicketService, private router: Router) { 
     
     this.tickets = new Array<Ticket>(); 
     this.tickets2 = new Array<Ticket>(); 
@@ -71,6 +72,15 @@ export class TicketComponent implements OnInit {
 )
 this.tickets2 = new Array<Ticket>(); 
  }
+
+
+ agregarTicket(){
+  this.router.navigate(["ticket-form",0])
+}
+
+modificarTicket(ticket:Ticket){
+  this.router.navigate(["ticket-form",ticket._id])
+}
 
 
 

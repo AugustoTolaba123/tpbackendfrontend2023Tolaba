@@ -1,3 +1,14 @@
+<div class="row">
+    <h3 class="col-12 text-center text-primary text-decoration-underline">LISTADO DE TICKETS</h3>
+</div>
+
+<div class="row mb-2">
+    <div class="col-12">
+        <button class="btn btn-primary" (click)="agregarTicket()">AGREGAR</button>
+    </div>
+</div>
+
+
 <table  class="table table-striped border border-1">
     <thead>
     <tr>
@@ -27,13 +38,17 @@
         <td>{{t.espectador.nombre}},{{t.espectador.apellido}}</td>
         <td>{{t._id}}</td>
         <td>
-            <button class="btn btn-success">MOD</button>
+            <button class="btn btn-success" (click)="modificarTicket(t)">MODIFICAR</button>
             <button class="btn btn-danger" (click)="deleteTicket(t)">BORRAR</button>
         </td>
 
     </tr>
     </tbody>
 </table>
+  
+<div class="row">
+    <h3 class="col-12 text-center text-primary text-decoration-underline">LISTAR POR CATEGORIA</h3>
+</div>
 
 <div class="mb-3">
     <label for="idcategoria" class="form-label">elija categoria</label>
@@ -75,6 +90,7 @@
         <td>
             <button class="btn btn-success">MOD</button>
             <button class="btn btn-danger" (click)="deleteTicket(t)">BORRAR</button>
+            <button class="btn btn-success" (click)="modificarTicket(t)">MODIFICAR</button>
         </td>
 
     </tr>

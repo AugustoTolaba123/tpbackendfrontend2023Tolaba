@@ -2,7 +2,8 @@
   <div class="row">
     <br/>
    <div class="col-md-8 col-sm-8 col-8 bg-success">
-      <div class="row" >
+    <button class="btn btn-warning" (click)="agreagarProducto()">AGREGAR NUEVO</button>  
+    <div class="row" >
        <div class="col-md-4 col-sm-6 col-12 bg-dark" *ngFor="let producto of productos" >
          <div class="card" style="width: 10rem;">
            <img src="{{producto.imagen}}" class="card-img-top" alt="...">
@@ -12,7 +13,7 @@
              <p class="font-weight-bold card-text">${{producto.precio}}</p>
              <div> 
              <a class="btn btn-primary">Agregar Carrito</a>
-             <button class="btn-primary" (click)="agreagarProducto()">AGREGAR</button>
+            
             </div>
            </div>
          </div> 
@@ -29,8 +30,7 @@
        </p>
      </div>
    </div>
-   
- <p>GIT ACTUALIZADO PRUEBA PRODUCTO</p>
+  
 </div>
 <br/>
 

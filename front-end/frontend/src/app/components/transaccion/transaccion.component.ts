@@ -12,6 +12,9 @@ export class TransaccionComponent implements OnInit {
   transaccion!: Transaccion;
   transacciones2!: Array<Transaccion>;
   email!:string;
+  monedaorigen!:string;
+  monedadestino!:string;
+
   constructor(private serviceTransaccion: DivisaService) { 
     this.transacciones = new Array<Transaccion>();
     this.cargarTransacciones();
@@ -41,8 +44,8 @@ export class TransaccionComponent implements OnInit {
   }
 
   cargarTransaccionesxfiltro(){
-     this.email = "martin@gmail.com"
-    this.serviceTransaccion.getTransaccionesxfiltro(this.email).subscribe(
+     
+    this.serviceTransaccion.getTransaccionesxfiltro(this.monedaorigen,this.monedadestino).subscribe(
       result => {
         let unaTransaccion:Transaccion = new Transaccion();  
         result.forEach((element:any) => {
@@ -56,6 +59,7 @@ export class TransaccionComponent implements OnInit {
 
       }
  )
+ this.transacciones2 = new Array<Transaccion>();
 
   }
 

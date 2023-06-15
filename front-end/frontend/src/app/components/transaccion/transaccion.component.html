@@ -22,7 +22,19 @@
       
     </tbody>
   </table>
-
+  
+  <p>LISTAR TRANSACCIONES POR FILTRO</p>
+  <div class="mb-3">
+    <label for="monedaorigen" class="form-label">Moneda Origen</label>
+    <input name="monedaorigen" type="text" class="form-control" id="imonedaorigen"
+     [(ngModel)]="monedaorigen">
+  </div>
+  <div class="mb-3">
+    <label for="monedadestino" class="form-label">Moneda Destino</label>
+    <input name="monedadestino" type="text" class="form-control" id="imonedadestino"
+     [(ngModel)]="monedadestino">
+  </div>
+ 
   <button type="submit" class="btn btn-warning" (click)="cargarTransaccionesxfiltro()">Ver Transacciones x filtro de email</button> 
   <table  *ngFor="let t of transacciones2" class="table">
     <thead>

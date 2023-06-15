@@ -5,8 +5,11 @@ const transaccionCtrl = {}
 transaccionCtrl.getTransacciones = async (req, res) => {
     //manejando concepto de filtros
     let criteria = {}
-     if((req.query.monedaOrigen != null) && (req.query.monedaOrigen != "")){
+     if((req.query.monedaOrigen != null) && (req.query.monedaOrigen != ""
+         && req.query.monedaDestino != null) && (req.query.monedaDestino != ""
+         )){
         criteria.monedaOrigen = req.query.monedaOrigen;
+        criteria.monedaDestino = req.query.monedaDestino;
      }
     var transacciones = await Transaccion.find(criteria);
 res.json(transacciones);
